@@ -1,0 +1,5 @@
+Dit is een bericht vanuit de HomeController!
+2022-05-10 14:04:52: select * from film
+2022-05-10 14:11:06: select * from film
+2022-05-10 14:13:23: select * from film where film.id=2
+2022-05-10 14:13:58: select * from film where film_id=2

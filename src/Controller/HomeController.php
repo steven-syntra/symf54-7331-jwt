@@ -31,13 +31,27 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/api/films", methods={"GET"}, name="api_films")
+     * @Route("/api/films", methods={"GET"}, name="api_films_get")
      * @return Response
      */
     public function apiFilms()
     {
         $data = $this->dbManager->GetData("select * from film");
         return $this->json($data);
+    }
+
+    /**
+     * @Route("/api/films", methods={"POST"}, name="api_films_post")
+     * @return Response
+     */
+    public function apiFilmsPost()
+    {
+        //https://lornajane.net/posts/2008/accessing-incoming-put-data-from-php
+        $contents = json_decode( file_get_contents("php://input") );
+
+        $messages[] = "Posting a new film! " . $contents->title;
+
+        return $this->json($messages);
     }
 
     /**

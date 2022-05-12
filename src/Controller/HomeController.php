@@ -49,7 +49,16 @@ class HomeController extends AbstractController
         //https://lornajane.net/posts/2008/accessing-incoming-put-data-from-php
         $contents = json_decode( file_get_contents("php://input") );
 
-        $messages[] = "Posting a new film! " . $contents->title;
+        if ( $contents )    // als de body in JSON formaat is...
+        {
+            $title = $contents->title;
+        }
+        else // als we een klassiek HTML form verzenden...
+        {
+            $title = $_POST['title'];
+        }
+
+        $messages[] = "Posting a new film! " . $title;
 
         return $this->json($messages);
     }
@@ -63,4 +72,13 @@ class HomeController extends AbstractController
         $data = $this->dbManager->GetData("select * from film where film_id=$id");
         return $this->json($data);
     }
+
+    /**
+     * @Route("/form", methods={"GET"}, name="form_register")
+     */
+    public function formRegister()
+    {
+        return $this->render("forms/register.html.twig");
+    }
+
 }

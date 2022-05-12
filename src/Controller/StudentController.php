@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Student;
+use App\Repository\StudentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use \Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,17 +35,11 @@ class StudentController extends AbstractController
     /**
      * @Route("/student/{id}", name="app_student_show")
      */
-    public function show($id, EntityManagerInterface $em)
+    public function show(Student $student)
     {
-        $repo = $em->getRepository(Student::class);
-        $student = $repo->findOneBy([ 'id' => $id ]);
-
         if ( !$student ){
             throw $this->createNotFoundException("Student not found");
         }
-        dump($student);
-
-        //return new Response("De gevraagde student met id $id vind je bij de dumps");
         return $this->render('student/detail.html.twig', [
             'student' => $student,
         ]);

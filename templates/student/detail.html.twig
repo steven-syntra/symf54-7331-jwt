@@ -8,5 +8,7 @@
     {{ student.voornaam }}
     {{ student.punten }}
     {{ student.geslacht }}
+    {{ student.geboortedatum | ago }}
+    {{ student.geboortedatum | date("d/m/Y") }}
 
 {% endblock %}

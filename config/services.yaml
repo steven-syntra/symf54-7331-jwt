@@ -24,9 +24,9 @@ services:
     # please note that last definitions always *replace* previous ones
     App\Services\DBManager:
         bind:
-            $db_url: "%env(DATABASE_URL)%"
-            $db_user: "%env(DATABASE_USER)%"
-            $db_pwd: "%env(DATABASE_PWD)%"
+            $db_url: "%env(DBMANAGER_URL)%"
+            $db_user: "%env(DBMANAGER_USER)%"
+            $db_pwd: "%env(DBMANAGER_PWD)%"
 
     App\Services\Logger:
         bind:

@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\StudentRepository;
-use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use App\Repository\TeacherRepository;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ApiResource()
- * @ORM\Entity(repositoryClass=StudentRepository::class)
+ * @ORM\Entity(repositoryClass=TeacherRepository::class)
  */
-class Student
+class Teacher
 {
     /**
      * @ORM\Id
@@ -20,7 +20,7 @@ class Student
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, unique=true)
+     * @ORM\Column(type="string", length=255)
      */
     private $naam;
 
@@ -35,14 +35,9 @@ class Student
     private $geboortedatum;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $punten;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    private $geslacht;
+    private $specialisatie;
 
     public function getId(): ?int
     {
@@ -73,9 +68,9 @@ class Student
         return $this;
     }
 
-    public function getGeboortedatum(): ?string
+    public function getGeboortedatum(): ?\DateTimeInterface
     {
-        return $this->geboortedatum->format('Y-m-d');
+        return $this->geboortedatum;
     }
 
     public function setGeboortedatum(?\DateTimeInterface $geboortedatum): self
@@ -85,26 +80,14 @@ class Student
         return $this;
     }
 
-    public function getPunten(): ?int
+    public function getSpecialisatie(): ?string
     {
-        return $this->punten;
+        return $this->specialisatie;
     }
 
-    public function setPunten(?int $punten): self
+    public function setSpecialisatie(?string $specialisatie): self
     {
-        $this->punten = $punten;
-
-        return $this;
-    }
-
-    public function getGeslacht(): ?int
-    {
-        return $this->geslacht;
-    }
-
-    public function setGeslacht(?int $geslacht): self
-    {
-        $this->geslacht = $geslacht;
+        $this->specialisatie = $specialisatie;
 
         return $this;
     }

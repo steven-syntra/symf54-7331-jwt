@@ -81,4 +81,11 @@ class HomeController extends AbstractController
         return $this->render("forms/register.html.twig");
     }
 
+    /**
+     * @Route("/appel", methods={"GET"}, name="appel_route")
+     */
+    public function appel()
+    {
+        return new Response("Dit is een appel");
+    }
 }

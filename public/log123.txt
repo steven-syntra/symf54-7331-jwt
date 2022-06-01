@@ -10,3 +10,4 @@ Posting a new film! Mijn titel
 2022-05-12 09:55:39: select * from film
 2022-05-12 12:06:14: select * from film
 2022-05-14 15:47:55: select * from film
+Dit is een bericht vanuit de HomeController!

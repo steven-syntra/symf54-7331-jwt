@@ -13,7 +13,7 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
 /**
  * @ApiResource(
  *     normalizationContext={
- *     "groups"={"teachers:read", "teachers:write", "vakken:read"},
+ *     "groups"={"teachers:read", "teachers:write"},
  *     "enable_max_depth"=true
  *     },
  *     denormalizationContext={
@@ -28,7 +28,7 @@ class Teacher
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"teachers:read"})
+     * @Groups({"teachers:read", "vakken:read"})
      */
     private $id;
 
@@ -52,7 +52,7 @@ class Teacher
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"teachers:read", "teachers:write"})
+     * @Groups({"teachers:read", "teachers:write", "vakken:read"})
      */
     private $specialisatie;
 

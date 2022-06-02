@@ -11,12 +11,13 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
 /**
  * @ApiResource(
  *     normalizationContext={
- *     "groups"={"vakken:read", "teachers:read", "teachers:write"},
+ *     "groups"={},
  *     "enable_max_depth"=true
  *     },
  * )
  * @ORM\Entity(repositoryClass=VakTeacherRepository::class)
  */
+//"teachers:read", "vakken:read",  "teachers:write"
 class VakTeacher
 {
     /**

@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\VakTeacherRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\OrderBy;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
 
@@ -39,6 +40,7 @@ class VakTeacher
     /**
      * @ORM\ManyToOne(targetEntity=Vak::class, inversedBy="teachers")
      * @ORM\JoinColumn(nullable=false)
+     *
      * @Groups({"teachers:read"})
      * @MaxDepth(1)
      */

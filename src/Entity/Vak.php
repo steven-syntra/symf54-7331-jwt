@@ -7,6 +7,7 @@ use App\Repository\VakRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\OrderBy;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
 
@@ -18,6 +19,7 @@ use Symfony\Component\Serializer\Annotation\MaxDepth;
  *     },
  * )
  * @ORM\Entity(repositoryClass=VakRepository::class)
+ *
  */
 // "teachers:read"
 class Vak
@@ -38,6 +40,7 @@ class Vak
 
     /**
      * @ORM\OneToMany(targetEntity=VakTeacher::class, mappedBy="vak", orphanRemoval=true)
+     *
      * @Groups({"vakken:read"})
      */
     private $teachers;

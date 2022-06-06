@@ -7,6 +7,7 @@ use App\Repository\TeacherRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\ORM\Mapping\OrderBy;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Component\Serializer\Annotation\MaxDepth;
 
@@ -28,7 +29,7 @@ class Teacher
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"teachers:read"})
+     * @Groups({"teachers:read", "vakken:read"})
      */
     private $id;
 
@@ -52,13 +53,14 @@ class Teacher
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"teachers:read", "teachers:write", "vakken:read"})
+     * @Groups({"teachers:read", "teachers:write"})
      */
     private $specialisatie;
 
     /**
      * @ORM\OneToMany(targetEntity=VakTeacher::class, mappedBy="teacher", orphanRemoval=true)
      * @Groups({"teachers:read","teachers:write"})
+     *
      * @MaxDepth(1)
      */
     private $vakken;

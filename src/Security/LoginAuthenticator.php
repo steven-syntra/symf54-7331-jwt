@@ -28,7 +28,7 @@ class LoginAuthenticator extends AbstractLoginFormAuthenticator
         $this->urlGenerator = $urlGenerator;
     }
 
-    //VOEG DEZE MISSING METHODE TOE
+    //VOEG DEZE ONTBREKENDE METHODE TOE
     public function supports(Request $request): bool
     {
         return self::LOGIN_ROUTE === $request->attributes->get('_route')

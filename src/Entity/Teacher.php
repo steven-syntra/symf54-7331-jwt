@@ -28,7 +28,7 @@ class Teacher
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
-     * @Groups({"teachers:read", "vakken:read"})
+     * @Groups({"teachers:read"})
      */
     private $id;
 

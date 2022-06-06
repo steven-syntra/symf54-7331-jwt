@@ -39,8 +39,7 @@ class VakTeacher
     /**
      * @ORM\ManyToOne(targetEntity=Vak::class, inversedBy="teachers")
      * @ORM\JoinColumn(nullable=false)
-     *
-     * @Groups({"teachers:read", "teachers:write"})
+     * @Groups({"teachers:read"})
      * @MaxDepth(1)
      */
     private $vak;

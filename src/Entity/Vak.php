@@ -39,7 +39,6 @@ class Vak
     /**
      * @ORM\OneToMany(targetEntity=VakTeacher::class, mappedBy="vak", orphanRemoval=true)
      * @Groups({"vakken:read"})
-     * @MaxDepth(1)
      */
     private $teachers;
 

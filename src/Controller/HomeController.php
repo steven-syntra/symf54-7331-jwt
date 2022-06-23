@@ -82,10 +82,10 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/appel", methods={"GET"}, name="appel_route")
+     * @Route("/myapi/appel", methods={"GET"}, name="appel_route")
      */
     public function appel()
     {
-        return new Response("Dit is een appel");
+        return new Response("Dit is een appel voor de ADMIN");
     }
 }
